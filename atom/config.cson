@@ -1,0 +1,23 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "530f81b5-55c9-4020-aea0-d990ff682f55"
+  core:
+    disabledPackages: [
+      "vim-mode-plus"
+    ]
+    telemetryConsent: "limited"
+    themes: [
+      "one-dark-ui"
+      "solarized-dark-syntax"
+    ]
+  editor:
+    fontSize: 17
+    scrollPastEnd: true
+    showIndentGuide: true
+  "exception-reporting":
+    userId: "7460a7a3-08cc-4b06-8a91-bffc988e352b"
+  minimap: {}
+  "tree-view": {}
+  welcome:
+    showOnStartup: false
