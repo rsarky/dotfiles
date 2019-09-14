@@ -4,29 +4,27 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 Plugin 'VundleVim/Vundle.vim'
-
 Plugin 'scrooloose/nerdtree.git'
-
 "Plugin 'Buffergator' 
-
 Plugin 'flazz/vim-colorschemes'
-
 Plugin 'morhetz/gruvbox' "Another colorscheme
-
 "Plugin 'kien/ctrlp.vim' "Fuzzy file finder
-
 Plugin 'tpope/vim-commentary' "easy toggling of comments
 
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-airline/vim-airline'
-
 Bundle 'edkolev/tmuxline.vim'
 
-"Plugin 'valloric/youcompleteme'  Can't make this work. :
+Plugin 'Valloric/YouCompleteMe'  
 
+Plugin 'airblade/vim-gitgutter' "Git plugin that shows diffs
+Plugin 'tpope/vim-fugitive' "Git plugin
+Plugin 'tpope/vim-sleuth' "Autodetect indentation settings
+
+Plugin 'vimwiki/vimwiki'
 call vundle#end()
+
 filetype plugin indent on
 
 syntax on
@@ -40,8 +38,8 @@ colorscheme dracula
 
 
 "Spaces and tabs
-set softtabstop=4 " Same as above but while editing.
-set shiftwidth=4
+set softtabstop=2 " Same as above but while editing.
+set shiftwidth=2
 set expandtab "tabs are spaces
 set autoindent
 
@@ -95,7 +93,8 @@ nnoremap <leader>h :noh<cr>
 
 "Enable Mouse
 set mouse=a
-"Fonts for airline
+
+"Airline
 let g:airline_powerline_fonts = 1
 
 "Automatically insert matching bracket.
@@ -103,6 +102,34 @@ inoremap {<CR> {<CR>}<Esc>ko
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap " ""<Esc>i
+inoremap ' ''<Esc>i
 inoremap <C-j> <Esc>/[)}"'\]>]<CR>:nohl<CR>a
 
 noremap <F2> :source ~/.vimrc<CR>
+
+"Move 5 lines at a moment with up down keys.
+nnoremap <Up> 5k
+nnoremap <Down> 5j
+
+set tags=./tags,./TAGS,tags;~,TAGS;~
+
+"Change update time
+set updatetime=100
+
+"Always show sign column
+set signcolumn=yes
+
+"Nerdtree mapping
+map <leader>n :NERDTreeToggle<CR>
+
+"Easy Buffer switching
+nnoremap <leader>b :ls<CR>:b<Space>
+nnoremap <leader>p :b#<CR>
+set hidden
+
+"For vim-latex
+let g:tex_flavor='latex'
+
+"vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
