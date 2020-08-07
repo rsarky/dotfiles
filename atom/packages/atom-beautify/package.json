@@ -298,7 +298,7 @@
     "node-cljfmt": "0.5.3",
     "node-dir": "0.1.17",
     "node-uuid": "1.4.8",
-    "open": "0.0.5",
+    "open": "7.1.0",
     "prettydiff": "1.16.37",
     "pug-beautify": "^0.1.1",
     "remark": "6.0.1",
