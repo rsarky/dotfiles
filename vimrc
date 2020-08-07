@@ -6,17 +6,16 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree.git'
-"Plugin 'Buffergator' 
 Plugin 'flazz/vim-colorschemes'
-Plugin 'morhetz/gruvbox' "Another colorscheme
-"Plugin 'kien/ctrlp.vim' "Fuzzy file finder
 Plugin 'tpope/vim-commentary' "easy toggling of comments
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
 
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-airline/vim-airline'
 Bundle 'edkolev/tmuxline.vim'
 
-Plugin 'Valloric/YouCompleteMe'  
+Plugin 'ycm-core/YouCompleteMe'  
 
 Plugin 'airblade/vim-gitgutter' "Git plugin that shows diffs
 Plugin 'tpope/vim-fugitive' "Git plugin
@@ -26,13 +25,10 @@ Plugin 'vimwiki/vimwiki'
 call vundle#end()
 
 filetype plugin indent on
-
 syntax on
 
 "Theme
 set t_Co=256
-"let g:gruvbox_italic=1 "GruvBox specific.
-"colorscheme gruvbox
 set background=dark
 colorscheme dracula
 
@@ -61,9 +57,9 @@ set hlsearch "Highlight matches
 nnoremap <leader><space> :nohlsearch<CR>
 
 "Folding
-" set foldmethod=indent
-" set foldlevelstart=10
-" nnoremap <space> za "Space opens closes folds
+ set foldmethod=indent
+ set foldlevelstart=10
+ nnoremap <space> za "Space opens closes folds
 
 set showcmd "Shows the command typed.
 
@@ -123,7 +119,7 @@ set signcolumn=yes
 map <leader>n :NERDTreeToggle<CR>
 
 "Easy Buffer switching
-nnoremap <leader>b :ls<CR>:b<Space>
+nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>p :b#<CR>
 set hidden
 
@@ -131,5 +127,11 @@ set hidden
 let g:tex_flavor='latex'
 
 "vimwiki
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/notes/', 'auto_tags': 1}]
+nnoremap <leader>m :VimwikiAll2HTML<CR>
+
+"Fuzzy file search
+nnoremap <C-p> :Files<CR>
+
+"fzf + ripgrep
+nnoremap \ :Rg<CR>
