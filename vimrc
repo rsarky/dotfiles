@@ -59,7 +59,9 @@ nnoremap <leader><space> :nohlsearch<CR>
 "Folding
  set foldmethod=indent
  set foldlevelstart=10
- nnoremap <space> za "Space opens closes folds
+
+"Space opens closes folds
+ nnoremap <space> za
 
 set showcmd "Shows the command typed.
 
